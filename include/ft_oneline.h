@@ -15,5 +15,6 @@ typedef struct  s_oneline
 /* ft_oneline */
 t_oneline	*ft_new_oneline(char const *data);
 t_oneline	*ft_oneline_add(t_oneline **oneline_ptr, char const *data);
+t_oneline *ft_free_oneline(t_oneline **oneline_ptr);
 
 #endif

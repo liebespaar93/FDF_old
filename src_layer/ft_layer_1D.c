@@ -34,6 +34,8 @@ int *ft_make_layer_1D(t_oneline *head_oneline, int *x_len)
     index = 0;
     str = head_oneline->data;
     *x_len = ft_int_layer_x_len(head_oneline);
+    if(!*x_len)
+        return (NULL);
     layer_1D = (int *)malloc(sizeof(int) * (*x_len));
     if (!layer_1D)
         return (NULL);

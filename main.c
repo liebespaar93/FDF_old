@@ -40,11 +40,27 @@ int main(int ac, char **av)
 {
 	t_param *param;
     t_dot   *head_dot;
+    t_dot   *tmp_dot;
+    t_dot   *free_dot;
 	
 	head_dot = makedot("test.fdf");
 	if (!head_dot)
 		return (0);
-	printf("%d", head_dot->z);
+	while (head_dot)
+	{
+		tmp_dot = head_dot;
+		head_dot = head_dot->y_m;
+		while (tmp_dot)
+		{
+			free_dot = tmp_dot;
+			printf("%d\t", tmp_dot->z);
+			tmp_dot = tmp_dot->x_p;
+			free(free_dot);
+		}
+		printf("\n");
+	}
+	system("leaks out");
+
 	return 0;
 }
 

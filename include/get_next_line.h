@@ -3,26 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: szheng <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: kyoulee <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/28 14:48:08 by szheng            #+#    #+#             */
-/*   Updated: 2018/07/31 21:09:19 by szheng           ###   ########.fr       */
+/*   Created: 2022/05/21 13:45:30 by kyoulee           #+#    #+#             */
+/*   Updated: 2022/05/24 14:18:01 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE 8
-# define FD_SIZE 4096
 
-# include <stdlib.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/uio.h>
 # include <unistd.h>
+# include <stdlib.h>
 # include <libft.h>
 
-int		get_next_line(const int fd, char **line);
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 512
+# endif
 
+typedef struct s_fd
+{
+	int				fd;
+	void			*data;
+	struct s_fd		*next;
+}	t_fd;
+
+/* get_next_line.c */
+char	*ft_buff_split(char **buff_all, int *flag, int rlen);
+void	ft_buff_read(char **buff_static, t_list **buff_head, int *flag, int fd);
+char	*get_next_line(int fd);
+t_fd	*ft_lst_fd_addfront(t_fd **fd_static, int fd, char **buff_static);
+char	*ft_lst_fd_find(t_fd **fd_static, int fd);
 #endif
