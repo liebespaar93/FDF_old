@@ -1,3 +1,6 @@
-[submodule "Libft"]
-	path = Libft
+[submodule "modules/Libft"]
+	path = modules/Libft
 	url = https://github.com/liebespaar93/Libft.git
+[submodule "modules/get_next_line"]
+	path = modules/get_next_line
+	url = https://github.com/liebespaar93/get_next_line.git

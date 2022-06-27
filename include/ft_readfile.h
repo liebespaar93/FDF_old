@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <get_next_line.h>
 #include <ft_oneline.h>
-
+#include <fcntl.h>
 
 /* ft_readfile */
 t_oneline *readfile(char *file_name);
