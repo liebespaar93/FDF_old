@@ -20,7 +20,7 @@ t_dot	*ft_make_dot_while(t_oneline *head_oneline, t_xyz *position)
 		y_len++;
 	}
 	while (--y_len && head_dot)
-		head_dot = head_dot->y_p;
+		head_dot = head_dot->y_m;
 	return (head_dot);
 }
 

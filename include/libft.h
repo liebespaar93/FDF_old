@@ -48,6 +48,11 @@ int		ft_lstsize(t_list *lst);
 /* src_malloc */
 void	*ft_calloc(size_t count, size_t size);
 
+/* src_math */
+float	ft_abs(long double num);
+float   ft_ratio(float num1, float num2);
+int		ft_sign(long double num);
+
 /* src_memory */
 void	ft_bzero(void *s, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);

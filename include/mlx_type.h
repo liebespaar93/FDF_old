@@ -2,6 +2,12 @@
 #ifndef MLX_TYPE_H
 # define MLX_TYPE_H
 
+#define WIN_WIDTH   500
+#define WIN_HEIGHT  500
+
+#define ZOOM 1
+#define LINE_SIZE 30
+#define SKETCH_START_Y 10
 typedef struct s_mouse
 {
 	int	mouse_keycode;

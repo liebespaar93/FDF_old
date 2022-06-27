@@ -9,16 +9,16 @@
 
 typedef	struct s_xyz
 {
-  int   x;
-  int   y;
-  int   z;
+  float   x;
+  float   y;
+  float   z;
 } t_xyz;
 
 typedef	struct s_dot
 {
-  int   x;
-  int   y;
-  int   z;
+  float   x;
+  float   y;
+  float   z;
 
   struct s_dot  *x_p;
   struct s_dot  *x_m;

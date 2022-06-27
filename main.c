@@ -1,7 +1,5 @@
 
 #define NOT_USE 0     // 안씀
-#define WIN_WIDTH   500
-#define WIN_HEIGHT  500
 
 #include <mlx.h>
 #include <mlx_type.h>
@@ -36,31 +34,40 @@
 #include <ft_oneline.h>
 #include "src_read_file/ft_oneline.c"
 
+#include <ft_draw.h>
+#include "src_draw/ft_draw_color.c"
+#include "src_draw/ft_draw_dot.c"
+#include "src_draw/ft_draw.c"
+#include "src_draw/ft_ratio_init.c"
+
 int main(int ac, char **av)
 {
 	t_param *param;
     t_dot   *head_dot;
-    t_dot   *tmp_dot;
-    t_dot   *free_dot;
 	
 	head_dot = makedot("test.fdf");
 	if (!head_dot)
-		return (0);
-	while (head_dot)
-	{
-		tmp_dot = head_dot;
-		head_dot = head_dot->y_m;
-		while (tmp_dot)
-		{
-			free_dot = tmp_dot;
-			printf("%d\t", tmp_dot->z);
-			tmp_dot = tmp_dot->x_p;
-			free(free_dot);
-		}
-		printf("\n");
-	}
-	system("leaks out");
+		return (-1);
+    t_dot   *tmp_dot;
 
-	return 0;
+	param = (t_param *)malloc(sizeof(t_param));
+	if (!param)
+		return (-1);
+	ft_memset(param, 0, sizeof(t_param));
+	param->mlx_ptr = mlx_init();
+	param->win_ptr = mlx_new_window(param->mlx_ptr , WIN_WIDTH, WIN_HEIGHT, "Hello, World!");
+
+	mlx_clear_window(param->mlx_ptr, param->win_ptr);
+
+	printf("===== key setting ====\n");
+	mlx_key_hook(param->win_ptr, &key_press, param);
+	mlx_mouse_hook(param->win_ptr, &mouse_event_down, param);
+	mlx_hook(param->win_ptr, 5, NOT_USE, &mouse_event_up, param);
+	mlx_hook(param->win_ptr, 6, NOT_USE, &mouse_event_draw, param);
+	
+	printf("===== draw setting ===\n");
+	ft_draw_dot_auto(param, head_dot);
+	mlx_loop(param->win_ptr);
+	return (0);
 }
 
