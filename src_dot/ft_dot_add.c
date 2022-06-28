@@ -5,7 +5,7 @@ t_dot *ft_dot_add_x(t_dot **dot_ptr, t_dot *new_dot, int sign)
     if (!*dot_ptr)
     {
         *dot_ptr = new_dot;
-        return (*dot_ptr);
+        return new_dot;
     }
     if (sign > 0)
     {
@@ -19,7 +19,7 @@ t_dot *ft_dot_add_x(t_dot **dot_ptr, t_dot *new_dot, int sign)
     }
     else
         return (*dot_ptr);
-    return (new_dot);
+    return new_dot;
 }
 
 t_dot *ft_dot_add_y(t_dot **dot_ptr, t_dot *new_dot, int sign)
@@ -27,7 +27,7 @@ t_dot *ft_dot_add_y(t_dot **dot_ptr, t_dot *new_dot, int sign)
     if (!*dot_ptr)
     {
         *dot_ptr = new_dot;
-        return (*dot_ptr);
+        return new_dot;
     }
     if (sign > 0)
     {
@@ -41,7 +41,7 @@ t_dot *ft_dot_add_y(t_dot **dot_ptr, t_dot *new_dot, int sign)
     }
     else
         return (*dot_ptr);
-    return (new_dot);
+    return new_dot;
 }
 
 t_dot *ft_dot_add_z(t_dot **dot_ptr, t_dot *new_dot, int sign)
@@ -49,7 +49,7 @@ t_dot *ft_dot_add_z(t_dot **dot_ptr, t_dot *new_dot, int sign)
     if (!*dot_ptr)
     {
         *dot_ptr = new_dot;
-        return (*dot_ptr);
+        return new_dot;
     }
     if (sign > 0)
     {
@@ -63,5 +63,5 @@ t_dot *ft_dot_add_z(t_dot **dot_ptr, t_dot *new_dot, int sign)
     }
     else
         return (*dot_ptr);
-    return (new_dot);
+    return new_dot;
 }

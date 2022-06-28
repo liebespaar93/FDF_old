@@ -4,8 +4,6 @@
 
 #include <stdlib.h>
 #include <ft_readfile.h>
-#include <libft.h>
-#include <ft_layer.h>
 
 typedef	struct s_xyz
 {
@@ -19,6 +17,7 @@ typedef	struct s_dot
   float   x;
   float   y;
   float   z;
+  float   value;
 
   struct s_dot  *x_p;
   struct s_dot  *x_m;
@@ -26,19 +25,22 @@ typedef	struct s_dot
   struct s_dot  *y_m;
   struct s_dot  *z_p;
   struct s_dot  *z_m;
-
-  void  *zoom_up;
-  void  *zoom_down;
 } t_dot;
 
+typedef struct s_dot_header
+{
+  t_dot *head_dot;
+
+  int max_len_x;
+  int max_len_y;
+  int max_len_z;
+} t_dot_header;
+
 /* ft_dot */
-t_dot *makedot(char *file_name);
-
-/* ft_dot_make_line */
-t_dot *ft_dot_make_line(t_dot *dot_ptr, t_xyz position, int *layer_1D, int x_len);
-
-/* ft_dot_new */
-t_dot *ft_new_dot(int value, t_xyz *position);
+t_dot *ft_new_dot(int value, t_xyz position);
+t_dot *ft_dot_init_1D(t_dot_header *head_dot_ptr, t_dot *line_dot, t_xyz position, t_oneline *head_oneline);
+t_dot	*ft_dot_init_2D(t_dot_header *head_dot_ptr, t_oneline *head_oneline, t_xyz	position);
+t_dot_header *dot_init(t_dot_header **head_dot_ptr, t_oneline *head_oneline);
 
 /* ft_dot_add */
 t_dot *ft_dot_add_x(t_dot **dot_ptr, t_dot *new_dot, int sign);

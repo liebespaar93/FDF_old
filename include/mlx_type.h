@@ -2,33 +2,34 @@
 #ifndef MLX_TYPE_H
 # define MLX_TYPE_H
 
-#define WIN_WIDTH   500
-#define WIN_HEIGHT  500
+#define WIN_WIDTH   1000
+#define WIN_HEIGHT  700
 
-#define ZOOM 1
-#define LINE_SIZE 30
-#define SKETCH_START_Y 10
+
+#include <ft_dot.h>
+
+
 typedef struct s_mouse
 {
 	int	mouse_keycode;
 
-	int x;				// x값
-	int y;				// y값
+	int x;
+	int y;
 
-	int draw_x;			// x값
-	int draw_y;			// y값
+	int draw_x;
+	int draw_y;
 }	t_mouse;
 
 typedef	struct s_param
 {
-  void	*mlx_ptr;
-  void	*win_ptr;
-
+	void	*mlx_ptr;
+	void	*win_ptr;
+	
+	t_dot	*head_dot;
 	t_mouse	mouse;
+	t_xyz	xyz;
 
-	int x;
-	int y;
-	int z;
+	int zoom;
 } t_param;
 
 # endif

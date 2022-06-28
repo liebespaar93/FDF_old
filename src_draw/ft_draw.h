@@ -15,6 +15,14 @@ typedef struct s_ratio
     float   z;
 }   t_ratio;
 
+typedef struct s_allow
+{
+    float   x;
+    float   y;
+    float   z;
+}   t_allow;
+
+
 typedef union u_color
 {
     int num;
@@ -28,6 +36,7 @@ typedef union u_color
 	}	s_bit;
 }   t_color;
 
+
 /* ft_draw_color */
 int ft_draw_color(int num);
 
@@ -38,7 +47,10 @@ void ft_draw_dot_auto(t_param *param, t_dot *head_dot);
 void    ft_auto_pixel_put(t_param *param, t_dot head_dot, int color);
 void    ft_auto_line_draw(t_param *param, t_dot position_dot, t_dot next_dot);
 
-/* ft_ratio_init.c */
+/* ft_ratio.c */
 t_ratio    ft_ratio_init(t_ratio *c_ratio, t_dot position_dot, t_dot next_dot);
+
+/* ft_allow.c */
+t_allow ft_allow_init(t_allow *c_allow, t_dot position_dot, t_dot next_dot);
 
 #endif
